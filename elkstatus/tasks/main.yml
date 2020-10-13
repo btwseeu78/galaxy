@@ -1,0 +1,5 @@
+---
+# tasks file for elkstatus
+- name: Get EC2 Facts
+  shell: echo 'hello'
+  notify: Check Cluster Health

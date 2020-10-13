@@ -1,0 +1,11 @@
+---
+# handlers file for elkstatus
+  - name: Check Cluster Health
+    uri:
+      url: http://localhost:{{ es_http_port }}/_cat/health
+      method: GET
+      return_content: yes
+    register: response
+    until: "'green' in response.content"
+    retries: 500
+    delay: 15

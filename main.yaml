@@ -1,0 +1,6 @@
+---
+- name: Main Play
+  hosts: localhost
+  connection: local
+  roles:
+  - elkstatus
