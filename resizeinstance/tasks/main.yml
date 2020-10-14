@@ -6,11 +6,16 @@
 - name: Check Upgarde
   debug:
     msg: "{{ upgrade }}"
+# - name: set allocation
+#   set_fact:
+#     enable_allocation: '{{ enable_allocation }}'
+#     disable_allocation: '{{ disable_allocation }}'
+    
 - name: Check Cluster Status
   include_tasks: ../elkstatus/handlers/main.yml
 - name: Import OtherJObs
   import_role:
     name: elkstatus
-  vars:
-  - enable_allocation: 'true'
-  - disable_allocation: 'false'
+
+
+

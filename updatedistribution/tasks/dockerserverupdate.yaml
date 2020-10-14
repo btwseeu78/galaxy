@@ -1,0 +1,13 @@
+- name: Bringing Down Docker Compose
+  shell: docker-compose down
+
+- name: Checking Status of Containers Post Bringing Them Down
+  shell: docker-compose ps
+  register: out_docker_containers_status
+  
+- name: Docker Containers Status Post Bringing Them Down
+  debug:
+    msg: "{{ out_docker_containers_status.stdout }}"
+- name: Docker container sattus post down
+  set_fact:
+    container_status: "{{ out_docker_containers_status.stdout }}"

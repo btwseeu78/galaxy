@@ -1,9 +1,0 @@
-- name: "Disable shard allocation for the cluster"
-  uri:
-    url: http://localhost:{{ es_http_port }}/_cluster/settings
-    method: PUT
-    body_format: json
-    body: "{{ es_disable_allocation }}"
-    return_content: yes
-  when: "'green' in response.content"
-

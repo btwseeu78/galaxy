@@ -2,11 +2,15 @@
 - name: Main Play
   hosts: localhost
   connection: local
+  vars_files:
+  - vars.yaml
   ignore_errors: True
   serial: 1
   roles:
   - { role: resizeinstance }
 #  - { role: checkupgrade,  check_status: 'true' }
 #  - { role: checkupgrade,  list_containers : 'true' }
+
+
 
   

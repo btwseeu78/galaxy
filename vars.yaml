@@ -1,0 +1,8 @@
+---
+some_vars: 'hello'
+enable_allocation: true
+disable_allocation: false
+check_status: true
+list_containers : false
+bringdwondocker: false
+upgradedocker: false

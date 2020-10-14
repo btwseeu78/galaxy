@@ -1,18 +1,22 @@
 - name: Check Latest Version of Docker Engine Available
-  shell: apt list docker-ce | cut -d ' ' -f 2
+  shell: apt list docker | cut -d ' ' -f 2
   become: yes
   register: out_latest_available_version
 
 - name: Latest Version of Docker Engine Availability Status
   debug:
     msg: "{{ out_latest_available_version.stdout }}"
+#ADD LATER
 
-- name: Fetch Installed Docker Engine Version
-  shell: docker version
-  become: yes
-  register: out_docker_version
+# - name: Fetch Installed Docker Engine Version
+#   shell: docker version
+#   become: yes
+#   register: out_docker_version
 
-- name: Docker Engine Version Status
-  debug:
-    msg: "{{ out_docker_version.stdout }}"
+# - name: Docker Engine Version Status
+#   debug:
+#     msg: "{{ out_docker_version.stdout }}"
+- name: Is Docker Upgrade Available
+  set_fact:
+    upgradedocker: "{{ out_latest_available_version.stdout_lines | length }}"
 

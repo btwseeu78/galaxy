@@ -1,4 +1,4 @@
 ---
 # vars file for checkupgrade
-check_status: false
-list_containers : false
+# check_status: false
+# list_containers : false

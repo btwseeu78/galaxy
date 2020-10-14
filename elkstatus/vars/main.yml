@@ -1,9 +1,0 @@
----
-# vars file for elkstatus
-ins_type: "{{ value }}"
-do_master: "{{ resize_master | default('false')}}"
-es_http_port: 9200
-es_disable_allocation: '{"transient":{"cluster.routing.allocation.enable":"none"}}'
-es_enable_allocation: '{"transient":{"cluster.routing.allocation.enable": "all","cluster.routing.allocation.node_concurrent_recoveries": 5,"indices.recovery.max_bytes_per_sec": "500mb"}}'
-enable_allocation: true
-disable_allocation: false
