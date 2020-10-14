@@ -3,9 +3,10 @@
   hosts: localhost
   connection: local
   ignore_errors: True
+  serial: 1
   roles:
-  - { role: elkstatus, tags: ['common'] }
-  - { role: checkupgrade,  check_status: 'true' }
+  - { role: resizeinstance }
+#  - { role: checkupgrade,  check_status: 'true' }
 #  - { role: checkupgrade,  list_containers : 'true' }
 
   

@@ -9,3 +9,6 @@
     until: "'green' in response.content"
     retries: 2
     delay: 15
+  - name: Fact Set
+    set_fact:
+      response: "{{ response }}"

@@ -1,2 +1,16 @@
 ---
 # tasks file for resizeinstance
+- name: check Parameters
+  debug:
+    msg:  "{{ instance_size }}"
+- name: Check Upgarde
+  debug:
+    msg: "{{ upgrade }}"
+- name: Check Cluster Status
+  include_tasks: ../elkstatus/handlers/main.yml
+- name: Import OtherJObs
+  import_role:
+    name: elkstatus
+  vars:
+  - enable_allocation: 'true'
+  - disable_allocation: 'false'
