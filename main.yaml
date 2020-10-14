@@ -2,5 +2,10 @@
 - name: Main Play
   hosts: localhost
   connection: local
+  ignore_errors: True
   roles:
-  - elkstatus
+  - { role: elkstatus, tags: ['common'] }
+  - { role: checkupgrade,  check_status: 'true' }
+#  - { role: checkupgrade,  list_containers : 'true' }
+
+  

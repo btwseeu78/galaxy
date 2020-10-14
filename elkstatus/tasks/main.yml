@@ -3,3 +3,30 @@
 - name: Get EC2 Facts
   shell: echo 'hello'
   notify: Check Cluster Health
+- meta: flush_handlers
+- name: "Disable shard allocation for the cluster"
+  uri:
+    url: http://localhost:{{ es_http_port }}/_cluster/settings
+    method: PUT
+    body_format: json
+    body: "{{ es_disable_allocation }}"
+    return_content: yes
+  when: "'green' in response.content"
+- name: Check Health After Cluster disbled Allocation
+  include_tasks: ../handlers/main.yml
+- name: "Enable shard allocation for the cluster"
+  uri:
+    url: http://localhost:{{ es_http_port }}/_cluster/settings
+    method: PUT
+    body: "{{ es_enable_allocation }}"
+    body_format: json
+    return_content: yes
+    headers:
+      Content-Type: "application/json"
+  register: enable_shard
+  until: enable_shard.content.find('true') != -1
+  retries: 10
+  delay: 15
+  notify: Check Cluster Health
+  
+

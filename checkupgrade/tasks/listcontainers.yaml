@@ -1,0 +1,10 @@
+- name: Listing Running Containers
+  shell: docker-compose ps
+  become: yes
+  register: out_docker_running_containers
+  
+- name: copy the output to a local file
+  copy:
+    content: "{{ out_docker_running_containers.stdlines }}"
+    dest: "/tmp/hello.txt"
+  delegate_to: localhost

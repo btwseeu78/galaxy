@@ -1,2 +1,8 @@
 ---
 # tasks file for checkupgrade
+- name: Check For Update
+  include_tasks: checkupgradestatus.yaml
+  when: check_status == 'true'
+- name: List Conatiners
+  include_tasks: listcontainers.yaml
+  when: list_containers == 'true'

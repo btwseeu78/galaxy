@@ -7,5 +7,5 @@
       return_content: yes
     register: response
     until: "'green' in response.content"
-    retries: 500
+    retries: 2
     delay: 15
