@@ -1,6 +1,0 @@
----
-# vars file for resizeinstance
-instance_size: 'not-given'
-upgrade: false
-enable_allocation: 'true'
-disable_allocation: 'false'
