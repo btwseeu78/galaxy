@@ -1,5 +1,5 @@
-- name: Bringing Down Docker Compose
-  shell: docker-compose down
+# - name: Bringing Down Docker Compose
+#   shell: docker-compose down
 
 - name: Checking Status of Containers Post Bringing Them Down
   shell: docker-compose ps

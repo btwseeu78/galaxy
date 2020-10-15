@@ -1,7 +1,14 @@
-- name: Installing Latest Version of DE
-  shell: sudo apt-get install docker-ce
-  become: yes
-  register: out_latest_installed_version
+# - name: Update the docker-ce to latest
+#   apt:
+#     name: docker-ce
+#     state: latest
+#     update_cache: yes
+#    become: yes
+#    register: out
+#    failed_when: out.changed == false
 - name: Latest Version of Docker Engine Status
   debug:
-    msg: "{{ out_latest_installed_version.stdout }}"
+    msg: "{{ out_latest_installed_version.stdout | default('1') }}"
+- name: Docker Version After Upgarde
+  set_fact:
+    afterupgrade: "{{ out_latest_installed_version.stdout | default('1') }}"

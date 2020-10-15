@@ -7,7 +7,7 @@
   ignore_errors: True
   serial: 1
   roles:
-  - { role: resizeinstance }
+  - { role: updatedistribution }
 #  - { role: checkupgrade,  check_status: 'true' }
 #  - { role: checkupgrade,  list_containers : 'true' }
 

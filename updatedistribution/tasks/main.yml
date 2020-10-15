@@ -1,13 +1,14 @@
 ---
 # tasks file for updatedistribution
-- name: Debug Value
+- name: IS Docker Upgrade Needed
   debug:
     msg: "{{ upgradedocker }}"
+
 
 - name: Bring Down Docker Container Before Upgrade
   include_tasks: dockerserverupdate.yaml
   when: bringdwondocker == 'true'
   
 - name: Update Docker In The env
-  include_tasks: 
-  when: upgradedocker == 'true'
+  include_tasks: updatedockerce.yaml
+  when: upgradedockerserver == 'true'

@@ -1,6 +1,6 @@
 - name: Check Latest Version of Docker Engine Available
   shell: apt list docker | cut -d ' ' -f 2
-  become: yes
+#  become: yes
   register: out_latest_available_version
 
 - name: Latest Version of Docker Engine Availability Status
